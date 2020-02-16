@@ -6,5 +6,4 @@ set -e
 echo "$KUBE_CONFIG_DATA" | base64 --decode > /tmp/config
 export KUBECONFIG=/tmp/config
 
-kubectl get pods  -n $NAMESPACE --no-headers=true | awk '/$POD-/{print $1}' | xargs  kubectl dele
-te -n $NAMESPACE pod
+kubectl get pods  -n $NAMESPACE --no-headers=true | awk '/$POD-/{print $1}' | xargs  kubectl delete -n $NAMESPACE pod
